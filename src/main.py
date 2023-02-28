@@ -98,7 +98,7 @@ for epoch in range(config.EPOCHS):
          tf.summary.scalar('discriminator_loss', s_disc_loss, step=epoch)
          tf.summary.scalar('generator_score', s_gen_score, step=epoch)
          tf.summary.scalar('discriminator_score', s_disc_score, step=epoch)
-         tf.summary.image("Sample Image", fake_images, step=epoch)
+         tf.summary.image("Generated Image", fake_images, step=epoch)
 
     #cv2.imwrite(f"out_images/{epoch}.jpg", fake_images[0].numpy()*255)
 
@@ -109,8 +109,8 @@ for epoch in range(config.EPOCHS):
         discriminator.save_weights(discriminator_weights_path)
 
 # Define the paths for the saved weights
-generator_weights_path = 'generator_weights_last.h5'
-discriminator_weights_path = 'discriminator_weights_last.h5'
+generator_weights_path = 'weights/generator_weights_last.h5'
+discriminator_weights_path = 'weights/discriminator_weights_last.h5'
 
 # Save the weights
 generator.save_weights(generator_weights_path)
